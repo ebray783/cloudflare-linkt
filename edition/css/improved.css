@@ -1,0 +1,19 @@
+/* FPVTOKEN - Improved Styles
+   Version: 1.2
+   Last updated: May 16, 2025
+*/
+
+/* ==== AIRDROP SECTION VARIABLES ==== */
+:root {
+  --airdrop-grid-gap: 3rem;
+  --airdrop-border-radius: 8px;
+  --airdrop-padding-large: 2rem;
+  --airdrop-padding-medium: 1.5rem;
+  --airdrop-padding-small: 1rem;
+  --airdrop-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
+  --airdrop-transition: all 0.3s ease;
+}
+
+/* Remove duplicate airdrop section styles since they are now in airdrop.css */
+
+/* Additional styles can be added below */ 

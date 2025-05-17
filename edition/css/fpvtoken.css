@@ -1,0 +1,1899 @@
+/* FPVTOKEN - Cyberpunk Crypto & NFT CSS
+   Created by Claude - Super Pro Frontend Design
+   Version: 1.0
+*/
+
+/* ==== BASE STYLES & VARIABLES ==== */
+:root {
+  /* Color Palette */
+  --primary: #00f0ff;
+  --primary-dark: #00a2b3;
+  --secondary: #ff003c;
+  --accent: #a100ff;
+  --background: #090b14;
+  --background-alt: #12152b;
+  --foreground: #e0e0e0;
+  --dark: #0a0a0a;
+  --mid-dark: #181818;
+  --mid: #333;
+  --light: #f0f0f0;
+  
+  /* Neon Colors */
+  --neon-blue: #00f0ff;
+  --neon-pink: #ff2a6d;
+  --neon-purple: #d300c5;
+  --neon-yellow: #ffe700;
+  --neon-green: #05ffa1;
+  
+  /* Gradients */
+  --cyber-gradient: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-pink) 100%);
+  --glass-gradient: linear-gradient(rgba(18, 21, 43, 0.8), rgba(9, 11, 20, 0.9));
+  --glow-gradient: radial-gradient(circle, rgba(0, 240, 255, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+  
+  /* Animation speeds */
+  --animation-slow: 3s;
+  --animation-medium: 1.5s;
+  --animation-fast: 0.7s;
+  
+  /* Shadows */
+  --text-shadow: 0 0 10px rgba(0, 240, 255, 0.7), 0 0 20px rgba(0, 240, 255, 0.5), 0 0 30px rgba(0, 240, 255, 0.3);
+  --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 240, 255, 0.3);
+  --neon-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue), 0 0 15px var(--neon-blue);
+}
+
+.input-with-icon {
+  position: relative;
+}
+
+.cyberpunk-input {
+  width: 100%;
+  padding: 0.8rem 1rem 0.8rem 2.5rem;
+  background: rgba(9, 11, 20, 0.7);
+  border: 2px solid var(--primary);
+  color: var(--light);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.cyberpunk-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 240, 255, 0.3);
+  border-color: var(--primary-dark);
+}
+
+.input-icon {
+  position: absolute;
+  left: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary);
+}
+
+#status {
+  height: 1.5rem;
+  margin: 1rem 0;
+  font-family: 'Share Tech Mono', monospace;
+  color: var(--neon-green);
+  text-shadow: 0 0 5px var(--neon-green);
+}
+
+#nft-status {
+  height: 1.5rem;
+  margin: 1rem 0;
+  font-family: 'Share Tech Mono', monospace;
+  color: var(--neon-pink);
+  text-shadow: 0 0 5px var(--neon-pink);
+}
+
+.wallet-action-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.cyberpunk-status {
+  font-family: 'Share Tech Mono', monospace;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  border-left: 4px solid var(--primary);
+  background: rgba(0, 240, 255, 0.05);
+}
+
+.connected {
+  color: var(--neon-green);
+  border-left-color: var(--neon-green);
+  background: rgba(5, 255, 161, 0.05);
+}
+
+.disconnected {
+  color: var(--neon-pink);
+  border-left-color: var(--neon-pink);
+  background: rgba(255, 42, 109, 0.05);
+}
+
+.nft-section {
+  background: var(--glass-gradient);
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--accent);
+  box-shadow: 0 0 20px rgba(161, 0, 255, 0.3);
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+.nft-title {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  text-shadow: 0 0 10px var(--accent);
+}
+
+.nft-preview {
+  margin-bottom: 2rem;
+}
+
+.nft-card {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(161, 0, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.nft-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 30px rgba(161, 0, 255, 0.5);
+}
+
+.nft-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nft-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(161, 0, 255, 0.2) 0%,
+    rgba(9, 11, 20, 0.8) 100%
+  );
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.nft-card:hover .nft-overlay {
+  opacity: 0.8;
+}
+
+/* ==== FOOTER ==== */
+footer {
+  background-color: var(--dark);
+  padding: 3rem 0 1rem;
+  position: relative;
+  border-top: 1px solid var(--primary);
+}
+
+footer:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--cyber-gradient);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.footer-logo h3 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--primary);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px var(--primary);
+}
+
+.footer-logo p {
+  color: var(--foreground);
+  font-size: 1rem;
+}
+
+.footer-links h4, .footer-social h4 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--light);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.footer-links h4:before, .footer-social h4:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--primary);
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 0.8rem;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.footer-links ul li:before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.footer-links ul li a {
+  color: var(--foreground);
+  transition: all 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+  color: var(--primary);
+  text-shadow: 0 0 5px var(--primary);
+  padding-left: 5px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(9, 11, 20, 0.8);
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  color: var(--primary);
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background: var(--primary);
+  color: var(--dark);
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 10px var(--primary);
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--foreground);
+  font-size: 0.9rem;
+}
+
+/* ==== RESPONSIVE STYLES ==== */
+@media (max-width: 1200px) {
+  .container, .cyberpunk-container {
+    width: 95%;
+    margin: 0 auto;
+  }
+  
+  .hero-section h1 {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-section h1 {
+    font-size: 3.5rem;
+  }
+  
+  .hero-section .description {
+    font-size: 1.2rem;
+    padding: 0 15px;
+  }
+  
+  .about-grid,
+  .tokenomics-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-image-container {
+    order: -1;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .token-chart {
+    max-width: 400px;
+    margin: 0 auto 2rem;
+  }
+  
+  .button-group {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+  }
+  
+  .search-bar {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .nav-buttons {
+    width: 100%;
+    overflow-x: auto;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    padding-bottom: 10px;
+  }
+  
+  .hero-section {
+    padding-top: 120px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .hero-section h1 {
+    font-size: 2.8rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    padding: 0 15px;
+  }
+  
+  .button-group {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .cyberpunk-btn, button {
+    width: 80%;
+    margin: 0.5rem auto;
+    text-align: center;
+  }
+  
+  .stats-banner {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 1rem;
+  }
+  
+  .features-list {
+    grid-template-columns: 1fr;
+    padding: 0 15px;
+  }
+  
+  .wallet-action-buttons {
+    flex-direction: column;
+  }
+  
+  .nft-card {
+    width: 85%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section h1 {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .token-details .detail-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .detail-label {
+    min-width: auto;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .nft-card {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+  
+  .cyberpunk-title {
+    font-size: 1.8rem;
+  }
+  
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+/* ==== ANIMATION & SPECIAL EFFECTS ==== */
+.btn-glitch-effect {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  transition: all 0.5s ease;
+  opacity: 0;
+  z-index: -1;
+}
+
+.cyberpunk-btn:hover .btn-glitch-effect {
+  opacity: 1;
+  transform: translateX(100%);
+}
+
+/* Add cyberpunk/futuristic grid lines to the background */
+.about-section::after,
+.tokenomics-section::after,
+#airdrop-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(to right, rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Low-opacity diagonal lines for texture */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0, 240, 255, 0.02),
+    rgba(0, 240, 255, 0.02) 2px,
+    transparent 3px,
+    transparent 8px
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Enhancement for specific elements */
+.buy-button button,
+#claimAirdropBtn,
+#connectWalletBtn {
+  position: relative;
+  overflow: hidden;
+}
+
+.buy-button button::after,
+#claimAirdropBtn::after,
+#connectWalletBtn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(45deg);
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.buy-button button:hover::after,
+#claimAirdropBtn:hover::after,
+#connectWalletBtn:hover::after {
+  animation: shine 1.5s forwards;
+}
+
+@keyframes shine {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%) rotate(45deg);
+  }
+  80% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+/* Add pulse animation to important UI elements */
+.token-allocation .allocation-item:nth-child(1),
+.cyberpunk-btn:nth-child(1),
+.hero-section .buy-button button {
+  animation: pulsate 4s infinite alternate-reverse;
+}
+
+@keyframes pulsate {
+  0% {
+    box-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary);
+  }
+  100% {
+    box-shadow: 0 0 15px var(--primary), 0 0 30px var(--primary);
+  }
+}
+
+/* Additional hover effects */
+.cyberpunk-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 5px var(--primary);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-dark);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+  box-shadow: 0 0 10px var(--primary);
+}
+
+/* Text selection */
+::selection {
+  background-color: var(--primary);
+  color: var(--dark);
+}
+
+/* Enhance focus for accessibility */
+a:focus,
+button:focus,
+input:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 500;
+  background-color: var(--background);
+  color: var(--foreground);
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(0, 240, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255, 0, 60, 0.05) 0%, transparent 50%),
+    linear-gradient(to bottom, var(--background), var(--background-alt));
+  background-attachment: fixed;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+a:hover {
+  color: var(--primary-dark);
+  text-shadow: var(--text-shadow);
+}
+
+button, .cyberpunk-btn {
+  position: relative;
+  display: inline-block;
+  font-family: 'Share Tech Mono', monospace;
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 0.8rem 1.5rem;
+  margin: 0.5rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  text-shadow: 0 0 5px var(--primary);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+  z-index: 1;
+  text-align: center;
+}
+
+button:hover, .cyberpunk-btn:hover {
+  background: var(--primary);
+  color: var(--dark);
+  box-shadow: 0 0 15px var(--primary);
+  text-shadow: none;
+}
+
+button:focus, .cyberpunk-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 240, 255, 0.5);
+}
+
+button:before, .cyberpunk-btn:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+  z-index: -1;
+}
+
+button:hover:before, .cyberpunk-btn:hover:before {
+  left: 100%;
+}
+
+button i, .cyberpunk-btn i {
+  margin-right: 0.5rem;
+}
+
+button:disabled, .cyberpunk-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section {
+  position: relative;
+  padding: 5rem 0;
+  overflow: hidden;
+}
+
+section:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  box-shadow: 0 0 10px var(--primary);
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--light);
+  position: relative;
+  padding-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+.section-title:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: var(--cyber-gradient);
+  box-shadow: 0 0 10px var(--primary);
+  border-radius: 2px;
+}
+
+/* ==== ANIMATION KEYFRAMES ==== */
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 var(--neon-pink), -0.05em -0.025em 0 var(--neon-blue);
+    transform: skewX(0deg);
+  }
+  15% {
+    text-shadow: -0.05em -0.025em 0 var(--neon-pink), 0.025em 0.025em 0 var(--neon-blue);
+    transform: skewX(15deg);
+  }
+  30% {
+    text-shadow: 0.025em 0.05em 0 var(--neon-pink), -0.05em -0.025em 0 var(--neon-blue);
+    transform: skewX(0deg);
+  }
+  45% {
+    text-shadow: -0.05em 0 0 var(--neon-pink), 0 -0.025em 0 var(--neon-blue);
+    transform: skewX(-10deg);
+  }
+  60% {
+    text-shadow: -0.025em 0 0 var(--neon-pink), 0.025em 0.025em 0 var(--neon-blue);
+    transform: skewX(0deg);
+  }
+  75% {
+    text-shadow: 0.025em 0.05em 0 var(--neon-pink), 0.05em 0 0 var(--neon-blue);
+    transform: skewX(5deg);
+  }
+  90% {
+    text-shadow: 0.05em -0.025em 0 var(--neon-pink), -0.025em 0.025em 0 var(--neon-blue);
+    transform: skewX(0deg);
+  }
+  100% {
+    text-shadow: 0.05em 0 0 var(--neon-pink), -0.05em -0.025em 0 var(--neon-blue);
+    transform: skewX(0deg);
+  }
+}
+
+@keyframes scanning {
+  0% {
+    background-position: 0% 0%;
+    opacity: 0.1;
+  }
+  50% {
+    background-position: 100% 100%;
+    opacity: 0.3;
+  }
+  100% {
+    background-position: 0% 0%;
+    opacity: 0.1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue), 0 0 15px var(--neon-blue);
+  }
+  50% {
+    box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 30px var(--neon-blue);
+  }
+  100% {
+    box-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue), 0 0 15px var(--neon-blue);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes blink {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes flicker {
+  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 30px var(--primary);
+  }
+  20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+    opacity: 0.4;
+    text-shadow: none;
+  }
+}
+
+@keyframes noise {
+  0%, 3%, 5%, 42%, 44%, 100% { opacity: 1; transform: scaleY(1); }  
+  4.3% { opacity: 1; transform: scaleY(4); }
+  43% { opacity: 1; transform: scaleX(10) rotate(60deg); }
+}
+
+/* ==== TOPBAR & NAVIGATION ==== */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  background: rgba(9, 11, 20, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  transition: top 0.3s;
+}
+
+.search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 250px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 0.5rem 1rem 0.5rem 2.5rem;
+  background: rgba(18, 21, 43, 0.6);
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  color: var(--light);
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  color: var(--primary);
+  z-index: 1;
+}
+
+.nav-buttons {
+  display: flex;
+}
+
+.nav-buttons button {
+  background: transparent;
+  border: none;
+  color: var(--light);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  margin: 0 0.25rem;
+  position: relative;
+  box-shadow: none;
+}
+
+.nav-buttons button:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-buttons button:hover {
+  color: var(--primary);
+  text-shadow: 0 0 5px var(--primary);
+  background: transparent;
+  box-shadow: none;
+}
+
+.nav-buttons button:hover:after {
+  transform: scaleX(1);
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.nav-buttons a, .nav-buttons button {
+  text-transform: uppercase;
+  font-family: 'Orbitron', sans-serif;
+  margin: 0 0.5rem;
+  padding: 0.5rem;
+  background: transparent;
+  border: none;
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  position: relative;
+  box-shadow: none;
+}
+
+.nav-buttons a:after, .nav-buttons button:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-buttons a:hover:after, .nav-buttons button:hover:after {
+  transform: scaleX(1);
+}
+
+/* Improve hero section */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  padding: 80px 15px 30px;
+}
+
+.logo-container {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Fix title alignment */
+.hero-section h1, .hero-section .title {
+  margin: 0 auto 1rem;
+  text-align: center;
+  width: 100%;
+  font-size: 4.5rem;
+  line-height: 1.1;
+  padding: 0 10px;
+}
+
+.hero-section .description {
+  margin: 0 auto 2rem;
+  max-width: 80%;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Fix button layout */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem auto;
+  width: 100%;
+  max-width: 500px;
+}
+
+.button-group a, .button-group button {
+  flex: 1;
+  min-width: 120px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Stats banner fix */
+.stats-banner {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 2rem auto 0;
+  width: 100%;
+  max-width: 700px;
+  padding: 1.5rem 1rem;
+}
+
+.stat-item {
+  padding: 0.5rem 1rem;
+  flex: 1;
+  min-width: 120px;
+}
+
+/* Search bar improvements */
+.search-bar {
+  display: flex;
+  align-items: center;
+  max-width: 250px;
+  width: auto;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--primary);
+  background: rgba(9, 11, 20, 0.7);
+  margin-right: 1rem;
+}
+
+.search-bar input {
+  border: none;
+  background: transparent;
+  padding: 0.5rem;
+  color: var(--light);
+  width: 100%;
+}
+
+.search-icon {
+  padding: 0 0.5rem;
+}
+
+/* Responsive fixes */
+@media (max-width: 768px) {
+  .topbar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0.5rem;
+  }
+  
+  .search-bar {
+    margin: 0.5rem auto;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .nav-buttons {
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+  
+  .nav-buttons a, .nav-buttons button {
+    margin: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .hero-section h1, .hero-section .title {
+    font-size: 3rem;
+  }
+  
+  .hero-section .description {
+    max-width: 95%;
+    font-size: 1rem;
+  }
+  
+  .button-group {
+    flex-direction: column;
+    width: 80%;
+  }
+  
+  .button-group a, .button-group button {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+}
+
+/* Fix for logo and central content */
+#logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+/* Fix for menu items spacing and alignment */
+@media (min-width: 769px) {
+  .nav-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+  
+  .search-bar {
+    margin-right: auto;
+  }
+}
+
+/* Additional fixes for the central content in hero section */
+.hero-content {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fix for buttons in hero section */
+.hero-section .buy-button {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.hero-section .buy-button button {
+  min-width: 150px;
+  padding: 0.8rem 2rem;
+  margin: 0 0.5rem;
+}
+
+/* Adjust spacing for section content */
+.section-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Ensure text content is well-aligned on mobile */
+@media (max-width: 480px) {
+  .hero-section h1, 
+  .hero-section .title {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    padding: 0;
+  }
+  
+  .logo-container {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .hero-section .description {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}
+
+/* ==== HERO SECTION ==== */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  padding-top: 60px;
+  background: 
+    linear-gradient(120deg, rgba(9, 11, 20, 0.9), rgba(18, 21, 43, 0.8)),
+    url('gallery/bg-pattern.jpg') center/cover no-repeat fixed;
+}
+
+.hero-section:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse at top, rgba(0, 240, 255, 0.1) 0%, transparent 70%),
+    radial-gradient(ellipse at bottom, rgba(255, 0, 60, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.logo-container {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  margin: 0 auto 2rem;
+}
+
+#logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 3px solid var(--primary);
+  box-shadow: 0 0 20px var(--primary);
+  animation: pulse var(--animation-slow) infinite;
+}
+
+.cyber-scanner {
+  position: relative;
+}
+
+.cyber-scanner:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 240, 255, 0.2) 50%,
+      transparent 100%
+    );
+  background-size: 100% 10px;
+  animation: scanning 4s linear infinite;
+  pointer-events: none;
+}
+
+.logo-overlay {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: pulse var(--animation-slow) infinite alternate 0.5s;
+}
+
+.hero-section h1 {
+  font-size: 5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--light);
+  text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary);
+  letter-spacing: 5px;
+}
+
+.glitch-text {
+  position: relative;
+  animation: glitch 2.5s infinite alternate-reverse;
+}
+
+.hero-section .description {
+  font-size: 1.5rem;
+  font-family: 'Share Tech Mono', monospace;
+  color: var(--foreground);
+  margin-bottom: 2rem;
+  max-width: 700px;
+  letter-spacing: 1px;
+  line-height: 1.8;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.hero-section .buy-button button {
+  background: var(--cyber-gradient);
+  color: var(--dark);
+  border: none;
+  text-shadow: none;
+  font-weight: bold;
+}
+
+.hero-section .buy-button button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 0 15px var(--primary);
+}
+
+.stats-banner {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background: rgba(18, 21, 43, 0.7);
+  border: 1px solid var(--primary);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.8rem;
+  color: var(--primary);
+  display: block;
+  text-shadow: 0 0 5px var(--primary);
+}
+
+.stat-label {
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: var(--foreground);
+  letter-spacing: 1px;
+}
+
+/* ==== ABOUT SECTION ==== */
+.about-section {
+  background-color: var(--background-alt);
+  position: relative;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-content .description {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: var(--foreground);
+}
+
+.features-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 0 15px;
+}
+
+.feature-item {
+  padding: 1.5rem;
+  background: rgba(9, 11, 20, 0.7);
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.3s ease;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.feature-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 15px var(--primary);
+}
+
+.feature-item i {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px var(--primary);
+}
+
+.feature-item h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--light);
+  text-transform: uppercase;
+}
+
+.feature-item p {
+  color: var(--foreground);
+  font-size: 1rem;
+}
+
+.about-image-container {
+  position: relative;
+}
+
+.cyber-frame {
+  position: relative;
+  padding: 15px;
+  background: var(--background);
+  border: 2px solid var(--primary);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+.about-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s ease;
+}
+
+.cyber-frame:hover .about-image {
+  transform: scale(1.03);
+}
+
+.frame-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--primary);
+  z-index: 2;
+}
+
+.top-left {
+  top: -5px;
+  left: -5px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.top-right {
+  top: -5px;
+  right: -5px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.bottom-left {
+  bottom: -5px;
+  left: -5px;
+  border-right: none;
+  border-top: none;
+}
+
+.bottom-right {
+  bottom: -5px;
+  right: -5px;
+  border-left: none;
+  border-top: none;
+}
+
+/* ==== TOKENOMICS SECTION ==== */
+/* Moved after Airdrop section */
+.tokenomics-section {
+  position: relative;
+  background-color: var(--background);
+  margin-top: 0; /* Adjust spacing between sections */
+}
+
+.tokenomics-section:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse at center, rgba(0, 240, 255, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.tokenomics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  align-items: center;
+}
+
+.token-chart {
+  position: relative;
+  padding-bottom: 100%;
+  height: 0;
+}
+
+.chart-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--dark);
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5%;
+}
+
+.chart-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(9, 11, 20, 0.8) 30%, transparent 70%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.chart-segments {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  transform: rotate(-90deg);
+}
+
+.segment {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+  border-radius: 50%;
+}
+
+.segment-1 {
+  background: var(--neon-blue);
+  clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 40%, 50% 50%);
+}
+
+.segment-2 {
+  background: var(--neon-pink);
+  clip-path: polygon(50% 50%, 100% 40%, 100% 65%, 50% 50%);
+}
+
+.segment-3 {
+  background: var(--neon-purple);
+  clip-path: polygon(50% 50%, 100% 65%, 100% 80%, 50% 50%);
+}
+
+.segment-4 {
+  background: var(--neon-yellow);
+  clip-path: polygon(50% 50%, 100% 80%, 100% 90%, 50% 50%);
+}
+
+.segment-5 {
+  background: var(--neon-green);
+  clip-path: polygon(50% 50%, 100% 90%, 100% 100%, 0 100%, 0 0, 50% 0, 50% 50%);
+}
+
+.token-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.token-allocation {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.allocation-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: rgba(9, 11, 20, 0.7);
+  border-radius: 4px;
+  border-left: 4px solid var(--primary);
+  transition: all 0.3s ease;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.allocation-item:hover {
+  transform: translateX(10px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 5px var(--primary);
+}
+
+.color-indicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.ci-1 { background: var(--neon-blue); }
+.ci-2 { background: var(--neon-pink); }
+.ci-3 { background: var(--neon-purple); }
+.ci-4 { background: var(--neon-yellow); }
+.ci-5 { background: var(--neon-green); }
+
+.allocation-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.allocation-name {
+  font-family: 'Share Tech Mono', monospace;
+  color: var(--foreground);
+}
+
+.allocation-value {
+  font-family: 'Share Tech Mono', monospace;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.token-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: rgba(9, 11, 20, 0.7);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--primary);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Share Tech Mono', monospace;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.detail-label {
+  color: var(--foreground);
+  min-width: 120px;
+}
+
+.detail-value {
+  color: var(--light);
+}
+
+.contract-address {
+  font-size: 0.8rem;
+  word-break: break-all;
+  padding-right: 30px;
+  position: relative;
+}
+
+.copy-btn {
+  background: transparent;
+  border: none;
+  color: var(--primary);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  right: 0;
+  box-shadow: none;
+}
+
+.copy-btn:hover {
+  color: var(--light);
+  box-shadow: none;
+  background: transparent;
+}
+
+/* Center alignment fixes */
+.feature-item, .allocation-item, .detail-item, .stats-banner {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Ensure container padding is consistent */
+.container, .cyberpunk-container {
+  padding: 2rem 15px;
+}
+
+/* Fix layout of form elements */
+.cyberpunk-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Ensure images are properly centered */
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Fix mobile status messages */
+#status, #nft-status {
+  text-align: center;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Improve form elements on mobile */
+.cyberpunk-input {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ensure section padding is responsive */
+section {
+  padding: 5rem 15px;
+}
+
+/* Responsive adjustments for section order */
+@media (max-width: 992px) {
+  #airdrop-section {
+    padding: 5rem 0;
+  }
+  
+  .tokenomics-section {
+    padding-top: 4rem;
+  }
+}
+
+/* Adjust section spacing to reduce gaps between sections */
+section {
+  position: relative;
+  padding: 4rem 0; /* Reduced from 5rem to 4rem */
+  overflow: hidden;
+}
+
+/* Reduce space between specific sections */
+#about.about-section {
+  padding-bottom: 3rem; /* Reduced bottom padding */
+}
+
+#airdrop-section {
+  padding-top: 3rem; /* Reduced top padding */
+  padding-bottom: 3rem; /* Reduced bottom padding */
+}
+
+.tokenomics-section {
+  padding-top: 3rem; /* Reduced top padding */
+}
+
+/* Adjust container padding for better vertical rhythm */
+.container, .cyberpunk-container {
+  padding: 1.5rem 15px; /* Reduced from 2rem to 1.5rem */
+}
+
+/* Make section titles more compact */
+.section-title {
+  margin-bottom: 1.5rem; /* Reduced from 2rem to 1.5rem */
+}
+
+/* Make cyberpunk title more compact */
+.cyberpunk-title {
+  margin-bottom: 2rem; /* Reduced from 3rem to 2rem */
+}
+
+/* Maintain proper spacing for mobile */
+@media (max-width: 768px) {
+  section {
+    padding: 3rem 0; /* Even more compact on mobile */
+  }
+  
+  #about.about-section,
+  #airdrop-section,
+  .tokenomics-section {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+/* ==== PRESALE BUTTON STYLES ==== */
+.presale-link {
+  display: inline-block;
+  margin: 1rem auto;
+  padding: 0.8rem 2rem;
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  text-decoration: none;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  z-index: 1;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  animation: none !important;
+}
+
+.presale-link:hover {
+  background: var(--primary);
+  color: var(--dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 240, 255, 0.3) !important;
+}
+
+.presale-link .btn-glitch-effect {
+  display: none !important;
+}
+
+/* Override any inherited button styles */
+.hero-section .presale-link {
+  box-shadow: none !important;
+  text-shadow: none !important;
+  background: transparent !important;
+  animation: none !important;
+}
+
+.hero-section .presale-link:hover {
+  box-shadow: 0 4px 12px rgba(0, 240, 255, 0.3) !important;
+  background: var(--primary) !important;
+}
+
+/* Remove any conflicting styles */
+.presale-link.cyberpunk-btn {
+  box-shadow: none !important;
+  text-shadow: none !important;
+  background: transparent !important;
+  animation: none !important;
+}
+
+.presale-link.cyberpunk-btn:hover {
+  box-shadow: 0 4px 12px rgba(0, 240, 255, 0.3) !important;
+  background: var(--primary) !important;
+}
+
+/* Ensure no animations or pseudo-elements are affecting the shadow */
+.presale-link {
+  animation: none !important;
+}
+
+.presale-link:before,
+.presale-link:after {
+  display: none !important;
+}
+
+/* Remove any pulsate animations */
+.presale-link,
+.hero-section .presale-link {
+  animation: none !important;
+}

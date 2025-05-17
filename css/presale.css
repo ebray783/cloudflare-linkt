@@ -1,0 +1,251 @@
+/* FPVTOKEN - Presale Section Styles
+   Version: 1.0
+*/
+
+/* ==== PRESALE SECTION ==== */
+#presale-section {
+  background: var(--background);
+  padding: 4rem 1rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#presale-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  transform: perspective(500px) rotateX(60deg);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.8;
+}
+
+#presale-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+  transform: perspective(500px) rotateX(60deg);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.presale-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
+  color: var(--primary);
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px var(--primary);
+  position: relative;
+  z-index: 1;
+}
+
+/* Presale Form Container */
+.presale-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  position: relative;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid var(--primary);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+}
+
+.presale-info {
+  margin-bottom: 2rem;
+}
+
+.presale-info h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  color: var(--light);
+  margin-bottom: 1rem;
+}
+
+.presale-info p {
+  color: var(--light);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.presale-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.input-group {
+  position: relative;
+}
+
+.presale-input {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  color: var(--light);
+  font-family: 'Rajdhani', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.presale-input:focus {
+  outline: none;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+  border-color: var(--accent);
+}
+
+.presale-button {
+  padding: 1rem 2rem;
+  background: var(--primary);
+  color: var(--dark);
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.presale-button:hover {
+  background: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 240, 255, 0.4);
+}
+
+/* Timer Section */
+.presale-timer {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.timer-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timer-value {
+  font-size: 2.5rem;
+  font-family: 'Orbitron', sans-serif;
+  color: var(--primary);
+  text-shadow: 0 0 10px var(--primary);
+  background: rgba(0, 0, 0, 0.5);
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid var(--primary);
+}
+
+.timer-label {
+  margin-top: 0.5rem;
+  font-family: 'Rajdhani', sans-serif;
+  color: var(--light);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Progress Bar */
+.progress-container {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  height: 30px;
+  overflow: hidden;
+  margin: 2rem 0;
+  border: 1px solid var(--primary);
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 10px;
+  transition: width 0.5s ease;
+  position: relative;
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--dark);
+  font-weight: 700;
+  width: 100%;
+  text-align: center;
+}
+
+/* Responsive presale section */
+@media (max-width: 992px) {
+  .presale-title {
+    font-size: 2.5rem;
+  }
+  
+  .timer-value {
+    font-size: 2rem;
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  #presale-section {
+    padding: 3rem 1rem;
+  }
+
+  .presale-title {
+    font-size: 2rem;
+  }
+
+  .presale-timer {
+    gap: 0.8rem;
+  }
+
+  .timer-value {
+    font-size: 1.5rem;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .timer-label {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .timer-value {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+  
+  .presale-container {
+    padding: 1.5rem;
+  }
+}

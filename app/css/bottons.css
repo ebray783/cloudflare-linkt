@@ -1,0 +1,72 @@
+/* Button Styles */
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.cyberpunk-btn {
+  background: linear-gradient(45deg, #00f3ff, #0066ff);
+  border: none;
+  border-radius: 5px;
+  color: #000;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.8rem 1.5rem;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.cyberpunk-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(0, 243, 255, 0.7);
+}
+
+.cyberpunk-btn:active {
+  transform: translateY(1px);
+}
+
+.buy-button button {
+  background: linear-gradient(45deg, #00ff88, #00cc66);
+  color: #000;
+}
+
+.presale-link {
+  display: inline-block;
+  margin-top: 1rem;
+  background: linear-gradient(45deg, #ff00ff, #ff0066);
+  text-decoration: none;
+}
+
+.copy-btn {
+  background: transparent;
+  border: none;
+  color: #00f3ff;
+  cursor: pointer;
+  padding: 0.3rem;
+  transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .button-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cyberpunk-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+} 

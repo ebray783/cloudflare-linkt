@@ -1,0 +1,168 @@
+/* NFT Carousel Styles */
+.nft-preview-container {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  margin: 2rem auto;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--primary);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
+  perspective: 1000px;
+}
+
+.nft-carousel {
+  display: flex;
+  width: 900%;  /* Updated for 9 images */
+  height: 100%;
+  animation: slideshow 45s cubic-bezier(0.4, 0, 0.2, 1) infinite;  /* Increased duration for smoother transitions */
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.nft-slide {
+  width: 11.11%;  /* Updated for 9 images (100% / 9) */
+  height: 100%;
+  position: relative;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  transform-origin: center center;
+  backface-visibility: hidden;
+}
+
+.nft-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: brightness(0.9);
+}
+
+.nft-slide:hover .nft-image {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.nft-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 240, 255, 0.1) 0%,
+    rgba(161, 0, 255, 0.2) 50%,
+    rgba(0, 240, 255, 0.1) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(2px);
+}
+
+.nft-slide:hover .nft-overlay {
+  opacity: 1;
+}
+
+@keyframes slideshow {
+  0% {
+    transform: translateX(0) translateZ(0);
+    opacity: 1;
+  }
+  5% {
+    transform: translateX(-11.11%) translateZ(20px);
+    opacity: 0.9;
+  }
+  11.11% {
+    transform: translateX(-11.11%) translateZ(0);
+    opacity: 1;
+  }
+  16.11% {
+    transform: translateX(-22.22%) translateZ(20px);
+    opacity: 0.9;
+  }
+  22.22% {
+    transform: translateX(-22.22%) translateZ(0);
+    opacity: 1;
+  }
+  27.22% {
+    transform: translateX(-33.33%) translateZ(20px);
+    opacity: 0.9;
+  }
+  33.33% {
+    transform: translateX(-33.33%) translateZ(0);
+    opacity: 1;
+  }
+  38.33% {
+    transform: translateX(-44.44%) translateZ(20px);
+    opacity: 0.9;
+  }
+  44.44% {
+    transform: translateX(-44.44%) translateZ(0);
+    opacity: 1;
+  }
+  49.44% {
+    transform: translateX(-55.55%) translateZ(20px);
+    opacity: 0.9;
+  }
+  55.55% {
+    transform: translateX(-55.55%) translateZ(0);
+    opacity: 1;
+  }
+  60.55% {
+    transform: translateX(-66.66%) translateZ(20px);
+    opacity: 0.9;
+  }
+  66.66% {
+    transform: translateX(-66.66%) translateZ(0);
+    opacity: 1;
+  }
+  71.66% {
+    transform: translateX(-77.77%) translateZ(20px);
+    opacity: 0.9;
+  }
+  77.77% {
+    transform: translateX(-77.77%) translateZ(0);
+    opacity: 1;
+  }
+  82.77% {
+    transform: translateX(-88.88%) translateZ(20px);
+    opacity: 0.9;
+  }
+  88.88% {
+    transform: translateX(-88.88%) translateZ(0);
+    opacity: 1;
+  }
+  93.88% {
+    transform: translateX(0) translateZ(20px);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(0) translateZ(0);
+    opacity: 1;
+  }
+}
+
+/* Add smooth pause on hover */
+.nft-preview-container:hover .nft-carousel {
+  animation-play-state: paused;
+}
+
+/* Glowing frame effect */
+.nft-preview-container::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg,
+    transparent,
+    var(--primary),
+    var(--accent),
+    transparent
+  );
+  border-radius: 12px;
+  z-index: -1;
+  opacity: 0.7;
+  animation: borderGlow 3s linear infinite;
+}
+
+@keyframes borderGlow {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+  100% { opacity: 0.3; }
+}

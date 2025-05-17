@@ -1,0 +1,110 @@
+/* FPVTOKEN - Navigation Bar Styles
+   Version: 1.0
+*/
+
+/* ==== NAVIGATION BAR ==== */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(9, 11, 20, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  border-bottom: 1px solid var(--primary);
+}
+
+.search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  color: var(--primary);
+}
+
+.search-bar input {
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid var(--primary);
+  padding: 0.5rem 0.5rem 0.5rem 2rem;
+  color: var(--light);
+  border-radius: 4px;
+  font-family: 'Share Tech Mono', monospace;
+  width: 200px;
+}
+
+.search-bar input:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--primary);
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-buttons button {
+  background: transparent;
+  border: 1px solid var(--primary);
+  color: var(--light);
+  padding: 0.5rem 1rem;
+  font-family: 'Orbitron', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-buttons button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 240, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.nav-buttons button:hover {
+  background: rgba(0, 240, 255, 0.1);
+  box-shadow: 0 0 10px var(--primary);
+}
+
+.nav-buttons button:hover::before {
+  left: 100%;
+}
+
+/* Responsive navigation */
+@media (max-width: 768px) {
+  .topbar {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .nav-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+}
