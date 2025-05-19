@@ -12,7 +12,8 @@ import {
   ledgerWallet,
 } from "@rainbow-me/rainbowkit/wallets";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
-import { bscTestnet } from "wagmi/chains"; // Import BSC testnet chain
+import { bsc } from "wagmi/chains"; // Import BSC mainnet chain
+
 import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 
 const projectId = "ff2db6544a529027450c74a34fc4fb74";
@@ -65,7 +66,8 @@ const Providers = ({ children }) => {
         chains={chains}
         appInfo={appInfo}
         modalSize="compact"
-        initialChain={97} // Force BSC testnet as the initial chain
+        initialChain={56} // Force BSC mainnet as the initial chain
+
       >
         {children}
       </RainbowKitProvider>
