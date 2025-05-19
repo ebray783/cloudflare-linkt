@@ -23,7 +23,7 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
   [
     jsonRpcProvider({
       rpc: () => ({
-        http: "https://rpc.ankr.com/bsc_testnet_chapel/ff8812608db2dae8d151920926ff81405b7c135d3a73b05c496616c135b07f32",
+        http: "https://rpc.ankr.com/bsc/ff8812608db2dae8d151920926ff81405b7c135d3a73b05c496616c135b07f32",
       }),
     }),
   ]
