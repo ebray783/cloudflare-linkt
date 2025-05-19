@@ -83,9 +83,9 @@ export const config = {
   }
 ],
     
-  },
-  chainId: 97, // BSC testnet chain ID
-  explorerUrl: "https://testnet.bscscan.com"
+{
+  chainId: 56, // BSC mainnet chain ID
+  explorerUrl: "https://bscscan.com"
 };
 
 export function setupWeb3Functions() {
