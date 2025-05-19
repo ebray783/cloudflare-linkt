@@ -83,7 +83,7 @@ export const config = {
   }
 ],
     
-{
+},
   chainId: 56, // BSC mainnet chain ID
   explorerUrl: "https://bscscan.com"
 };
