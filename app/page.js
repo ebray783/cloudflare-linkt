@@ -1,5 +1,7 @@
-import Home from './index-js.js'
+"use client";
+
+import Home from './index-js';
 
 export default function Page() {
-  return <Home />
-} 
+  return <Home />;
+}

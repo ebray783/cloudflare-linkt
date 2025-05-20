@@ -1,22 +1,5 @@
 "use client";
 
-// Import CSS files
-import './css/base.css';
-import './css/navbar.css';
-import './css/hero.css';
-import './css/about.css';
-import './css/airdrop.css';
-import './css/tokenomics.css';
-import './css/explorer.css';
-import './css/here-we-go.css';
-import './css/fpv-parts.css';
-import './css/token-grid.css';
-import './css/roadmap.css';
-import './css/footer.css';
-import './css/animations.css';
-import './css/presale.css';
-import './css/nft-carousel.css';
-
 // Import React and Next.js components
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
@@ -84,15 +67,6 @@ export default function Home() {
         <meta httpEquiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data: blob:;" />
         <title>FPVTOKEN - Cyberpunk Crypto & NFT</title>
         <meta name="description" content="FPVTOKEN is the first crypto token inspired by aliens Predator idea, including real FPV drone parts & NFT collection" />
-        
-        {/* Fonts */}
-        <link href="https://fonts.googleapis.com/css?family=Orbitron:400,700|Share+Tech+Mono|Rajdhani:500,600&display=swap" rel="stylesheet" />
-        
-        {/* Font Awesome for icons */}
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-        
-        {/* Favicon */}
-        <link rel="icon" type="image/png" href="/gallery/favicon.png" />
       </Head>
 
       <main>
@@ -145,7 +119,7 @@ export default function Home() {
               <i className="fa-solid fa-rocket"></i> Access Presale
             </Link>
             
-            <div className="stats-banner">
+        <div className="stats-banner" title="These statistics are placeholders and will be updated after token launch">
               <div className="stat-item">
                 <span className="stat-value counter">1247</span>
                 <span className="stat-label">Holders</span>
@@ -264,7 +238,7 @@ export default function Home() {
                   )}
                 </>
               ) : null}
-              <div id="nft-status"></div>
+              
             </div>
 
             {/* Token Claim Container */}
@@ -274,7 +248,7 @@ export default function Home() {
                 <label className="cyberpunk-label" htmlFor="walletInput"></label>
                 <input className="cyberpunk-input" id="walletInput" placeholder="0xYourWalletAddress" />
               </form>
-              <div id="status"></div>
+              
               <div style={{ marginTop: 24 }}>
                 <AirdropClaim />
               </div>
@@ -285,7 +259,7 @@ export default function Home() {
               ) : (
                 <p id="walletAddress" className="cyberpunk-status disconnected">Not Connected</p>
               )}
-              <div id="wallet-address"></div>
+              
             </div>
           </div>
         </section>
@@ -354,9 +328,6 @@ export default function Home() {
                   <div className="detail-item">
                     <span className="detail-label">Contract:</span>
                     <span className="detail-value contract-address">0x1BEe8d11f11260A4E39627EDfCEB345aAfeb57d9</span>
-                    <button className="copy-btn" onClick={() => copyToClipboard('0x1BEe8d11f11260A4E39627EDfCEB345aAfeb57d9')}>
-                      <i className="fa-regular fa-copy"></i>
-                    </button>
                   </div>
                   <div className="detail-item">
                     <span className="detail-label">Network:</span>
@@ -422,53 +393,53 @@ export default function Home() {
               {[
                 {
                   img: "https://i.postimg.cc/FFyT5wc1/rcinpower-2207.jpg",
-                  title: "RCING 2207/2750KV",
-                  desc: "Super power motor used for 4s/2750kv 6s/2200kv"
+                  title: "Racing",
+                  desc: "Rcing Motor"
                 },
                 {
                   img: "https://i.postimg.cc/HsSDHGmT/img1.jpg",
-                  title: "SPEEDYBEE FRAME",
-                  desc: "This frame gives you the best ability to control the drone"
+                  title: "Frame",
+                  desc: "Drone Frame"
                 },
                 {
                   img: "https://i.postimg.cc/59g8mJL5/luminier-props.jpg",
-                  title: "Drone FPV View",
-                  desc: "Capture the horizon with high-end racing drones"
+                  title: "Propellers",
+                  desc: "Lumenier Propellers"
                 },
                 {
                   img: "https://i.postimg.cc/KvQQ4L02/aifc1.jpg",
-                  title: "Speedybee HD Flight Controller",
-                  desc: "Best flight controller for HD and analog drones"
+                  title: "FC",
+                  desc: "flightcontroller"
                 },
                 {
                   img: "https://i.postimg.cc/ncdYnxLV/speedybee-esc.jpg",
-                  title: "Speedybee 60am ESC",
+                  title: "ESC",
                   desc: "Speedybee 60am bethel 32 ESC"
                 },
                 {
                   img: "https://i.postimg.cc/tTtWwQfj/radio-fpv.jpg",
-                  title: "Cyber radiomaster",
-                  desc: "Next-gen FPV pilot with AR interface and goggles"
+                  title: "radioma",
+                  desc: "Long Range Radio"
                 },
                 {
                   img: "https://i.postimg.cc/qM7ybFxP/img2.jpg",
-                  title: "Crossfire Receiver",
-                  desc: "Durable, high-gain for clear signal"
+                  title: "TBS",
+                  desc: "Long Range Signal"
                 },
                 {
                   img: "https://i.postimg.cc/wBRkWrgq/wa.jpg",
-                  title: "FPV Goggles HD",
-                  desc: "High-definition goggles with low latency video feed"
+                  title: "Goggles",
+                  desc: "High-definition goggles"
                 },
                 {
                   img: "https://i.postimg.cc/kMvvhK3b/ai-air-unit.jpg",
-                  title: "FPV Camera",
-                  desc: "Ultra-clear wide-angle FPV camera for fast flight"
+                  title: "Airunit",
+                  desc: "HD Module"
                 },
                 {
                   img: "https://i.postimg.cc/YChN9P46/gnb-lipo.jpg",
-                  title: "LiPo Battery",
-                  desc: "High-performance LiPo battery for longer flights"
+                  title: "LiPo",
+                  desc: "Lipo Battery"
                 }
               ].map((item, index) => (
                 <div className="gallery-item" key={index}>
@@ -572,16 +543,15 @@ export default function Home() {
                     "Exchange Listings",
                     "Partnership Announcements",
                     "FPV Drone Parts Integration"
-                  ]
+                   ]
                 },
                 {
                   phase: "Phase 3",
                   title: "Expansion",
                   items: [
-                    "Mobile App Development",
-                    "Cross-chain Integration",
-                    "Staking Platform Launch",
-                    "International Marketing"
+                    "Add NFT Traits Rarity Tool",
+                    "Start Token Burn Events",
+                    "Partnership with FPV Drone Brands"
                   ]
                 },
                 {
@@ -629,19 +599,32 @@ export default function Home() {
               <div className="footer-social">
                 <h4>Connect With Us</h4>
                 <div className="social-icons">
-                  <a href="https://twitter.com/fpvtoken" target="_blank" rel="noopener" aria-label="Twitter"><i className="fa-brands fa-twitter"></i></a>
-                  <a href="https://t.me/fpvtoken" target="_blank" rel="noopener" aria-label="Telegram"><i className="fa-brands fa-telegram"></i></a>
-                  <a href="https://discord.gg/fpvtoken" target="_blank" rel="noopener" aria-label="Discord"><i className="fa-brands fa-discord"></i></a>
-                  <a href="https://medium.com/@fpvtoken" target="_blank" rel="noopener" aria-label="Medium"><i className="fa-brands fa-medium"></i></a>
+                  <a href="mailto:fpvtoken@fpv-token.com" aria-label="Email" className="social-icon email-link">
+                    <img src="/social/gmail.svg" alt="Gmail" width="24" height="24" />
+                  </a>
+                  <a href="https://x.com/fpvdronetoken" target="_blank" rel="noopener" aria-label="Twitter/X" className="social-icon twitter-link">
+                    <img src="/social/twitter.svg" alt="Twitter/X" width="24" height="24" />
+                  </a>
+                  <a href="https://t.me/fpvdronetoken" target="_blank" rel="noopener" aria-label="Telegram" className="social-icon telegram-link">
+                    <img src="/social/telegram.svg" alt="Telegram" width="24" height="24" />
+                  </a>
+                  <a href="https://github.com/ebray783" target="_blank" rel="noopener" aria-label="GitHub" className="social-icon github-link">
+                    <img src="/social/github.svg" alt="GitHub" width="24" height="24" />
+                  </a>
+                  <a href="https://www.facebook.com/fpvdronetoken" target="_blank" rel="noopener" aria-label="Facebook" className="social-icon facebook-link">
+                    <img src="/social/facebook.svg" alt="Facebook" width="24" height="24" />
+                  </a>
                 </div>
               </div>
-            </div>
+            </div> {/* end of footer-grid */}
+
             <div className="copyright">
               <p>&copy; {new Date().getFullYear()} FPVTOKEN. All rights reserved.</p>
             </div>
-          </div>
+          </div> {/* end of container */}
         </section>
       </main>
     </>
   );
 }
+

@@ -1,76 +1,64 @@
 "use client";
 
-import React from "react";
+import * as React from 'react';
+import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
+import { WagmiProvider } from 'wagmi';
+import { bsc } from 'wagmi/chains';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { createConfig } from 'wagmi';
 import {
-  RainbowKitProvider,
-  getDefaultWallets,
-  connectorsForWallets,
-} from "@rainbow-me/rainbowkit";
-import {
-  argentWallet,
+  metaMaskWallet,
   trustWallet,
-  ledgerWallet,
-} from "@rainbow-me/rainbowkit/wallets";
-import { configureChains, createConfig, WagmiConfig } from "wagmi";
-import { bscTestnet } from "wagmi/chains"; // Import BSC testnet chain
-import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
+  rainbowWallet,
+} from '@rainbow-me/rainbowkit/wallets';
+import { http } from 'viem';
 
 const projectId = "ff2db6544a529027450c74a34fc4fb74";
 
-// Configure only BSC testnet chain with Ankr RPC
-const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [bscTestnet],
-  [
-    jsonRpcProvider({
-      rpc: () => ({
-        http: "https://rpc.ankr.com/bsc_testnet_chapel/ff8812608db2dae8d151920926ff81405b7c135d3a73b05c496616c135b07f32",
-      }),
-    }),
-  ]
-);
-
-const { wallets } = getDefaultWallets({
-  appName: "FPV Token App",
-  projectId,
-  chains,
-});
-
-const appInfo = {
-  appName: "FPV Token",
-};
-
-const connectors = connectorsForWallets([
-  ...wallets,
+// Configure available wallets
+const wallets = [
   {
-    groupName: "Other",
+    groupName: 'Popular',
     wallets: [
-      argentWallet({ projectId, chains }),
-      trustWallet({ projectId, chains }),
-      ledgerWallet({ projectId, chains }),
+      metaMaskWallet,
+      trustWallet,
+      rainbowWallet,
     ],
   },
-]);
+];
 
-const wagmiConfig = createConfig({
-  autoConnect: true,
-  connectors,
-  publicClient,
-  webSocketPublicClient,
+// Configure wagmi config
+const config = createConfig({
+  chains: [bsc],
+  transports: {
+    [bsc.id]: http()
+  }
 });
 
-const Providers = ({ children }) => {
-  return (
-    <WagmiConfig config={wagmiConfig}>
-      <RainbowKitProvider
-        chains={chains}
-        appInfo={appInfo}
-        modalSize="compact"
-        initialChain={97} // Force BSC testnet as the initial chain
-      >
-        {children}
-      </RainbowKitProvider>
-    </WagmiConfig>
-  );
-};
+// Create a client for tanstack query
+const queryClient = new QueryClient();
 
-export default Providers;
+export function Providers({ children }) {
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => setMounted(true), []);
+
+  return (
+    <WagmiProvider config={config}>
+      <QueryClientProvider client={queryClient}>
+        <RainbowKitProvider
+          chains={[bsc]}
+          id={projectId}
+          appInfo={{
+            appName: "FPV Token",
+            learnMoreUrl: "https://fpvtoken.com",
+          }}
+          modalSize="compact"
+          showRecentTransactions={true}
+          coolMode={true}
+        >
+          {mounted && children}
+        </RainbowKitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
+  );
+}

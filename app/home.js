@@ -4,20 +4,7 @@ import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Script from 'next/script'
 
-// Import CSS files
-import '../css/base.css'
-import '../css/navbar.css'
-import '../css/hero.css'
-import '../css/about.css'
-import '../css/airdrop.css'
-import '../css/tokenomics.css'
-import '../css/explorer.css'
-import '../css/here-we-go.css'
-import '../css/footer.css'
-import '../css/animations.css'
-import '../css/roadmap.css'
-import '../css/fpv-parts.css'
-import '../css/token-grid.css'
+
 
 export default function Home() {
   const [connectedAccount, setConnectedAccount] = useState(null)

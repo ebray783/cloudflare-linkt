@@ -4,7 +4,7 @@ import { ethers } from 'ethers';
 // Web3 setup configuration
 const config = {
   mintContract: {
-    address: "0x4419869F1A75C65C8e9Ef503A6fB6E5e36Ae990B",
+    address: "0x1cC4a0b04f0cD580c497692451579dEC7BA02aE6",
     defaultTokenURI: "https://gateway.pinata.cloud/ipfs/bafybeiawkgrlvds34mf4yrsrvsyskd2xztzufgzlt7sk6vs5g2ejewv2ju/",
     autoApprove: true,
     mintPrice: "0.01",
@@ -12,7 +12,7 @@ const config = {
   },
   
   wrapContract: {
-    address: "0xedd1b47cbc3b4ac2062c8ea75cf258d6afaa0f57",
+    address: "0x9DEe1057457666D9Ce1ed505a5f82c310A9aB3cD",
     defaultTokenURI: "https://gateway.pinata.cloud/ipfs/bafybeiawkgrlvds34mf4yrsrvsyskd2xztzufgzlt7sk6vs5g2ejewv2ju/",
     abi: null
   },

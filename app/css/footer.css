@@ -2,6 +2,21 @@
    Version: 1.0
 */
 
+/* Global Font Awesome fix */
+i[class^="fa-"], 
+i[class*=" fa-"], 
+.fa, 
+.fas, 
+.far, 
+.fab {
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands", "FontAwesome" !important;
+  display: inline-block !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  text-rendering: auto !important;
+  line-height: 1 !important;
+}
+
 /* For the very top of the file */
 :root {
   overflow-y: auto;
@@ -141,6 +156,22 @@ main {
   margin-bottom: 1.5rem;
   font-size: 1.2rem;
   text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-social h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--primary),
+    transparent
+  );
 }
 
 .footer-links ul {
@@ -182,23 +213,129 @@ main {
 
 .social-icons {
   display: flex;
-  gap: 1rem;
+  gap: 1.2rem;
+  margin-top: 1rem;
 }
 
 .social-icons a {
   color: var(--foreground);
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   transition: all 0.3s ease;
-  padding: 0.5rem;
-  border: 1px solid transparent;
-  border-radius: 4px;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(248, 250, 250, 0.514);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  overflow: hidden;
+  animation: fadeInScale 0.5s ease-out backwards;
+}
+
+/* Special GitHub icon fix */
+.social-icons a.github-link i {
+  font-size: 2rem; /* Make GitHub icon a bit larger for better visibility */
+}
+
+/* Twitter/X icon fallback for different versions */
+.social-icons a.twitter-link i::before {
+  content: "\f099"; /* This is the code for fa-twitter (fallback) */
+}
+
+/* Make telegram icon use the plane version if available */
+.social-icons a.telegram-link i::before {
+  content: "\f3fe"; /* This is the code for fa-telegram-plane */
+}
+
+.social-icons a:nth-child(1) { animation-delay: 0.1s; }
+.social-icons a:nth-child(2) { animation-delay: 0.2s; }
+.social-icons a:nth-child(3) { animation-delay: 0.3s; }
+.social-icons a:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.social-icons a::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 240, 255, 0.1),
+    rgba(161, 0, 255, 0.1)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .social-icons a:hover {
   color: var(--primary);
+  transform: translateY(-5px);
+  box-shadow: 
+    0 0 15px rgba(0, 240, 255, 0.4),
+    inset 0 0 10px rgba(0, 240, 255, 0.2);
   border-color: var(--primary);
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Brand-specific hover colors - with specific class names */
+.social-icons a.twitter-link:hover {
+  color: #1DA1F2;
+  border-color: #1DA1F2;
+  box-shadow: 0 0 15px rgba(29, 161, 242, 0.5);
+}
+
+.social-icons a.telegram-link:hover {
+  color: #0088cc;
+  border-color: #0088cc;
+  box-shadow: 0 0 15px rgba(0, 136, 204, 0.5);
+}
+
+.social-icons a.github-link:hover {
+  color: #333;
+  border-color: #333;
+  box-shadow: 0 0 15px rgba(51, 51, 51, 0.5);
+}
+
+.social-icons a.facebook-link:hover {
+  color: #1877F2;
+  border-color: #1877F2;
+  box-shadow: 0 0 15px rgba(24, 119, 242, 0.5);
+}
+
+.social-icons a:hover::before {
+  opacity: 1;
+}
+
+.social-icons a i {
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover i {
+  text-shadow: 0 0 10px var(--primary);
+  animation: iconPulse 1.5s infinite alternate;
+}
+
+@keyframes iconPulse {
+  0% {
+    transform: scale(1);
+    text-shadow: 0 0 5px var(--primary);
+  }
+  100% {
+    transform: scale(1.1);
+    text-shadow: 0 0 15px var(--primary), 0 0 30px var(--primary);
+  }
 }
 
 .copyright {
@@ -243,9 +380,15 @@ main {
     gap: 2rem;
     text-align: center;
   }
-
   .social-icons {
     justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .social-icons a {
+    width: 45px;
+    height: 45px;
+    font-size: 1.6rem;
   }
 
   .footer-links ul li a {

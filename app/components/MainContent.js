@@ -71,6 +71,7 @@ const MainContent = () => {
               className="cyber-scanner"
               width={150}
               height={150}
+              priority={true}
             />
             <div className="logo-overlay"></div>
           </div>

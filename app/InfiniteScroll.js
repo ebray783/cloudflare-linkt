@@ -74,9 +74,6 @@ root.render(
 );
 
 // App.js - Your main application component
-import React, { useState, useEffect } from 'react';
-import InfiniteScroll from './InfiniteScroll'; // Import from the same directory
-
 // Example component using the InfiniteScroll
 const App = () => {
   const [items, setItems] = useState([]);
