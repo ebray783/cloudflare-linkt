@@ -4,12 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && npx @cloudflare/next-on-pages",
+    "build": "next build",
+    "postbuild": "npx @cloudflare/next-on-pages",
     "start": "next start",
     "lint": "next lint",
-    "pages:build": "next build",
-    "pages:deploy": "npx wrangler pages deploy .vercel/output/static",
-    "deploy": "npm run build && npm run pages:deploy",
     "type-check": "tsc --noEmit",
     "format": "prettier --write .",
     "clean": "rm -rf .next node_modules"
