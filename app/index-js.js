@@ -80,7 +80,6 @@ export default function Home() {
             <button onClick={() => scrollToSection('top')}>Home</button>
             <button onClick={() => scrollToSection('about')}>About</button>
             <button onClick={() => scrollToSection('airdrop-section')}>Claim</button>
-            <button onClick={() => scrollToSection('tokenomics')}>Tokenomics</button>
             <button onClick={() => scrollToSection('contact')}>Contact</button>
           </div>
         </div>

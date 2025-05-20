@@ -1,16 +1,17 @@
 name = "fpvtoken"
 compatibility_date = "2024-01-01"
+main = true
 
 [site]
 bucket = "./out"
-pages_build_output_dir = "./out"
+pages_build_output_dir = "out"
+production_branch = "main"
 
 [security]
 ilas = false
 
 [env.production]
-name = "fpvtoken-production"
-route = "fpvtoken.com/*"
-
-[security]
-ilas = false
+name = "fpvtoken"
+routes = [
+    { pattern = "fpvtoken.com", custom_domain = true }
+]
