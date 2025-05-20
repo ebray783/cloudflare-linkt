@@ -1,0 +1,215 @@
+/* FPVTOKEN - Base Styles and Variables
+   Version: 1.0
+*/
+
+/* ==== CSS VARIABLES ==== */
+:root {
+  /* Colors */
+  --background: #0a0a0a;
+  --background-alt: #0a0a0a;
+  --foreground: #a0a0a0;
+  --light: #ffffff;
+  --dark: #000000;
+
+  
+  /* Primary Colors */
+  --primary: #00f0ff;
+  --primary-dark: #0099a3;
+  --primary-alt: #00ccff;
+  
+  /* Accent Colors */
+  --accent: #a100ff;
+  --accent-alt: #7700cc;
+  --highlight: #ff2a6d;
+  
+  /* Status Colors */
+  --success: #05ffa1;
+  --warning: #ffb800;
+  --error: #ff2a6d;
+  
+  /* Gradients */
+  --cyber-gradient: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+  --glass-gradient: linear-gradient(
+    135deg,
+    rgba(10, 10, 10, 0.9) 0%,
+    rgba(10, 10, 10, 0.8) 100%
+  );
+  
+  /* Animations */
+  --animation-slow: 3s;
+  --animation-medium: 2s;
+  --animation-fast: 0.3s;
+
+  /* Airdrop Section Variables */
+  --airdrop-padding-xl: 6rem;
+  --airdrop-padding-lg: 4rem;
+  --airdrop-padding-md: 2rem;
+  --airdrop-padding-sm: 1rem;
+  
+  --airdrop-grid-gap: 2rem;
+  --airdrop-border-radius: 8px;
+  --airdrop-container-max-width: 1200px;
+  
+  --airdrop-form-width: 500px;
+  --airdrop-nft-card-size: 300px;
+  --airdrop-input-height: 3rem;
+  
+  --airdrop-title-size: clamp(1.75rem, 5vw, 2.5rem);
+  --airdrop-subtitle-size: 1.6rem;
+  --airdrop-text-size: 1rem;
+  
+  --airdrop-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+  --airdrop-hover-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 30px rgba(161, 0, 255, 0.5);
+  
+  --airdrop-transition: all 0.3s ease;
+  --airdrop-blur: blur(10px);
+  
+  /* Breakpoints */
+  --breakpoint-xl: 1200px;
+  --breakpoint-lg: 992px;
+  --breakpoint-md: 768px;
+  --breakpoint-sm: 480px;
+}
+
+/* ==== RESET & BASE STYLES ==== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Rajdhani', sans-serif;
+  background: var(--background);
+  color: var(--light);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ==== TYPOGRAPHY ==== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', sans-serif;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px var(--primary);
+}
+
+/* ==== CONTAINERS ==== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ==== BUTTONS ==== */
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  outline: none;
+}
+
+/* ==== LINKS ==== */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==== FORMS ==== */
+input, textarea, select {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1rem;
+}
+
+/* ==== ANIMATIONS ==== */
+@keyframes flicker {
+  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+    opacity: 1;
+  }
+  20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes scanning {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ==== UTILITY CLASSES ==== */
+.text-center {
+  text-align: center;
+}
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+.mb-5 { margin-bottom: 3rem; }
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+.mt-5 { margin-top: 3rem; }
+
+/* ==== RESPONSIVE BASE STYLES ==== */
+@media (max-width: 992px) {
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
+

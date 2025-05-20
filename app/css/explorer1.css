@@ -1,0 +1,193 @@
+/* FPVTOKEN - Explorer Section Styles
+   Version: 1.0
+   EXPLANATION: This file contains styling for the Explorer section of the FPVTOKEN website.
+   It creates a futuristic interface with a tech-inspired grid background and animated elements.
+*/
+
+/* ==== EXPLORER SECTION ==== */
+/* This styles the main container for the explorer section */
+#explorer-section {
+  background: var(--background);  /* Uses a predefined background color variable */
+  padding: 4rem 1rem;  /* Adds spacing: 4rem top/bottom, 1rem left/right */
+  text-align: center;  /* Centers all text content */
+  position: relative;  /* Creates positioning context for absolute elements */
+  overflow: hidden;    /* Prevents content from spilling outside */
+}
+
+/* Creates the first grid layer of the background */
+/* This forms a larger grid pattern with perspective effect */
+#explorer-section::before {
+  content: '';  /* Required for pseudo-elements */
+  position: absolute;  /* Positions relative to the parent */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;  /* Covers the entire section */
+  background: 
+    linear-gradient(90deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;  /* Creates a 40px × 40px grid */
+  transform: perspective(500px) rotateX(60deg);  /* Creates 3D perspective effect */
+  pointer-events: none;  /* Prevents it from interfering with mouse events */
+  z-index: 0;  /* Positions it behind content */
+  opacity: 0.8;  /* Makes it partially transparent */
+}
+
+/* Creates the second grid layer of the background */
+/* This forms a smaller grid pattern for added depth */
+#explorer-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;  /* Smaller 20px × 20px grid */
+  transform: perspective(500px) rotateX(60deg);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;  /* Slightly more transparent than first grid */
+}
+
+/* Styles for the main heading of the explorer section */
+.explorer-title {
+  font-family: 'Orbitron', sans-serif;  /* Sci-fi style font */
+  font-size: 3rem;  /* Large text size */
+  color: var(--primary);  /* Uses primary color variable */
+  margin-bottom: 3rem;  /* Spacing below the title */
+  text-transform: uppercase;  /* Makes text ALL CAPS */
+  text-shadow: 0 0 10px var(--primary);  /* Creates glowing effect */
+  position: relative;
+  z-index: 1;  /* Ensures it displays above the grid background */
+}
+
+/* Carousel Styles */
+/* Container for the automatically scrolling image carousel */
+.carousel-container {
+  width: 100%;
+  max-width: 1200px;  /* Limits width on larger screens */
+  margin: 0 auto 4rem;  /* Centers horizontally with bottom margin */
+  overflow: hidden;  /* Hides content that scrolls outside boundaries */
+  position: relative;
+  z-index: 1;
+}
+
+/* The track that holds all carousel images */
+.carousel-track {
+  display: flex;  /* Places images in a row */
+  animation: carousel 50s linear infinite;  /* Slow, smooth animation - higher number = slower */
+  width: auto;  /* Allow the track to be as wide as needed */
+  will-change: transform;  /* Optimizes animation performance */
+}
+
+/* Individual drone images in the carousel */
+.drone-image {
+  min-width: 200px;
+  height: 200px;
+  margin: 0 1rem;  /* Horizontal spacing between images */
+  object-fit: cover;  /* Maintains aspect ratio while filling dimensions */
+  border: 2px solid var(--primary);  /* Colored border using primary color */
+  border-radius: 8px;  /* Rounded corners */
+  transition: all 0.4s ease;  /* Smooth transition for hover effects */
+}
+
+/* Hover effect for drone images */
+.drone-image:hover {
+  transform: scale(1.05);  /* Makes image slightly larger */
+  box-shadow: 0 0 20px var(--primary);  /* Adds glowing effect */
+}
+
+/* Brand Section */
+/* Styles for the brands section title */
+.brand-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;  /* Smaller than main title but still prominent */
+  color: var(--light);  /* Uses light color variable */
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+/* Grid layout for brand logos */
+.brands {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));  /* Responsive grid layout */
+  gap: 2rem;  /* Spacing between grid items */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Brand logo image styling */
+.brands img {
+  width: 100%;
+  height: 80px;
+  object-fit: contain;  /* Maintains aspect ratio without cropping */
+  filter: grayscale(100%) brightness(200%);  /* Makes logos white/gray */
+  transition: all 0.3s ease;  /* Smooth transition for hover effect */
+  opacity: 0.7;  /* Partially transparent by default */
+}
+
+/* Hover effect for brand logos */
+.brands img:hover {
+  filter: grayscale(0%) brightness(100%);  /* Shows original colors on hover */
+  opacity: 1;  /* Full opacity on hover */
+  transform: scale(1.1);  /* Slightly enlarges the logo */
+}
+
+/* Animation for carousel scrolling - smooth infinite loop */
+@keyframes carousel {
+  from {
+    transform: translateX(0);  /* Starting position */
+  }
+  to {
+    transform: translateX(calc(-1 * (200px + 2rem) * 10));  /* Move exactly one complete set (10 items) */
+  }
+}
+
+/* Responsive explorer section */
+/* Adjustments for medium-sized screens */
+@media (max-width: 992px) {
+  .explorer-title {
+    font-size: 2.5rem;  /* Smaller title on medium screens */
+  }
+
+  .brand-title {
+    font-size: 1.8rem;  /* Smaller subtitle on medium screens */
+  }
+
+  .drone-image {
+    min-width: 150px;  /* Smaller images on medium screens */
+    height: 150px;
+  }
+}
+
+/* Adjustments for small screens (tablets and mobile) */
+@media (max-width: 768px) {
+  #explorer-section {
+    padding: 3rem 1rem;  /* Less vertical padding on small screens */
+  }
+
+  .explorer-title {
+    font-size: 2rem;  /* Even smaller title on small screens */
+  }
+
+  .brand-title {
+    font-size: 1.5rem;  /* Even smaller subtitle on small screens */
+  }
+
+  .brands {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));  /* Smaller grid items */
+    gap: 1.5rem;  /* Less spacing between items */
+  }
+
+  .brands img {
+    height: 60px;  /* Smaller brand logos */
+  }
+}

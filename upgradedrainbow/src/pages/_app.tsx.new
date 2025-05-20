@@ -1,0 +1,53 @@
+import '../styles/globals.css';
+import '@rainbow-me/rainbowkit/styles.css';
+import type { AppProps } from 'next/app';
+
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { configureChains, createConfig, WagmiConfig } from 'wagmi';
+import { mainnet, sepolia } from 'wagmi/chains';
+import { publicProvider } from 'wagmi/providers/public';
+import {
+  RainbowKitProvider,
+  connectorsForWallets,
+  rainbowWallet,
+  metaMaskWallet,
+  walletConnectWallet,
+} from '@rainbow-me/rainbowkit';
+
+const { chains, publicClient } = configureChains(
+  [mainnet, sepolia],
+  [publicProvider()]
+);
+
+const connectors = connectorsForWallets([
+  {
+    groupName: 'Recommended',
+    wallets: [
+      metaMaskWallet({ projectId: 'ff2db6544a529027450c74a34fc4fb74', chains }),
+      rainbowWallet({ projectId: 'ff2db6544a529027450c74a34fc4fb74', chains }),
+      walletConnectWallet({ projectId: 'ff2db6544a529027450c74a34fc4fb74', chains }),
+    ],
+  },
+]);
+
+const wagmiConfig = createConfig({
+  autoConnect: true,
+  connectors,
+  publicClient,
+});
+
+const queryClient = new QueryClient();
+
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <WagmiConfig config={wagmiConfig}>
+      <QueryClientProvider client={queryClient}>
+        <RainbowKitProvider>
+          <Component {...pageProps} />
+        </RainbowKitProvider>
+      </QueryClientProvider>
+    </WagmiConfig>
+  );
+}
+
+export default MyApp;

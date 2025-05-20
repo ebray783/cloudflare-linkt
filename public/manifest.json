@@ -1,0 +1,16 @@
+{
+  "name": "FPVTOKEN - Cyberpunk Crypto & NFT",
+  "short_name": "FPVTOKEN",
+  "description": "FPVTOKEN is the first crypto token inspired by aliens Predator idea, including real FPV drone parts & NFT collection",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0ea5e9",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+} 

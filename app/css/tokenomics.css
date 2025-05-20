@@ -1,0 +1,266 @@
+/* FPVTOKEN - Tokenomics Section Styles
+   Version: 1.0
+*/
+
+/* ==== TOKENOMICS SECTION ==== */
+.tokenomics-section {
+  background: var(--background);
+  padding: 4rem 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.tokenomics-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  transform: perspective(500px) rotateX(60deg);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.8;
+}
+
+.tokenomics-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+  transform: perspective(500px) rotateX(60deg);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.tokenomics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.token-chart {
+  position: relative;
+  padding: 2rem;
+}
+
+.chart-placeholder {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  border-radius: 50%;
+  background: var(--background);
+  border: 2px solid var(--primary);
+  overflow: hidden;
+}
+
+.chart-overlay {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  animation: rotate 20s linear infinite;
+}
+
+.chart-segments {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.segment {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 50% 100%);
+}
+
+.segment-1 { background: var(--primary); transform: rotate(0deg); }
+.segment-2 { background: var(--primary-alt); transform: rotate(144deg); }
+.segment-3 { background: var(--accent); transform: rotate(216deg); }
+.segment-4 { background: var(--accent-alt); transform: rotate(288deg); }
+.segment-5 { background: var(--highlight); transform: rotate(324deg); }
+
+.token-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.token-allocation {
+  display: grid;
+  gap: 1rem;
+}
+
+.allocation-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  background: rgba(9, 11, 20, 0.5);
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+}
+
+.color-indicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.ci-1 { background: var(--primary); }
+.ci-2 { background: var(--primary-alt); }
+.ci-3 { background: var(--accent); }
+.ci-4 { background: var(--accent-alt); }
+.ci-5 { background: var(--highlight); }
+
+.allocation-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+
+.allocation-name {
+  color: var(--light);
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.allocation-value {
+  color: var(--primary);
+  font-family: 'Share Tech Mono', monospace;
+  font-weight: bold;
+}
+
+.token-details {
+  background: rgba(9, 11, 20, 0.5);
+  border: 1px solid var(--primary);
+  padding: 1.5rem;
+  border-radius: 4px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.detail-item:last-child {
+  margin-bottom: 0;
+}
+
+.detail-label {
+  color: var(--foreground);
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.detail-value {
+  color: var(--primary);
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.contract-address {
+  font-size: 0.9rem;
+  word-break: break-all;
+  display: inline-block;
+  text-decoration: none;
+  color: var(--primary);
+  transition: all 0.3s ease;
+  position: relative;
+  padding-right: 1.5rem;
+}
+
+.contract-address:hover {
+  color: var(--light);
+  text-shadow: 0 0 8px var(--primary);
+}
+
+.contract-address::after {
+  content: '\f35d';
+  font-family: 'Font Awesome 6 Free', 'FontAwesome';
+  font-weight: 900;
+  position: absolute;
+  right: 0.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8rem;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.contract-address:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(2px);
+}
+
+.copy-btn {
+  background: transparent;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
+  color: var(--light);
+  transform: scale(1.1);
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive tokenomics */
+@media (max-width: 992px) {
+  .tokenomics-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .token-chart {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .tokenomics-section {
+    padding: 3rem 1rem;
+  }
+
+  .token-details {
+    padding: 1rem;
+  }
+
+  .detail-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+

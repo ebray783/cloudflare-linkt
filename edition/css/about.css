@@ -1,0 +1,211 @@
+/* FPVTOKEN - About Section Styles
+   Version: 1.0
+*/
+
+/* ==== ABOUT SECTION ==== */
+.about-section {
+  background: var(--background);
+  padding: 4rem 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  transform: perspective(500px) rotateX(60deg);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.8;
+}
+
+.about-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+  transform: perspective(500px) rotateX(60deg);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  align-items: start;
+}
+
+.about-content {
+  text-align: left;
+}
+
+.about-content .description {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: var(--foreground);
+  font-family: 'Share Tech Mono', monospace;
+  line-height: 1.6;
+}
+
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.feature-item {
+  padding: 1.5rem;
+  background: rgba(9, 11, 20, 0.7);
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateX(10px);
+  box-shadow: 0 0 20px var(--primary);
+}
+
+.feature-item i {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px var(--primary);
+  float: left;
+  margin-right: 1rem;
+}
+
+.feature-item h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--light);
+  text-transform: uppercase;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.feature-item p {
+  color: var(--foreground);
+  font-size: 1rem;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.about-image-container {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cyber-frame {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+}
+
+.about-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.cyber-frame:hover .about-image {
+  transform: scale(1.05);
+}
+
+.frame-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--primary);
+}
+
+.top-left {
+  top: -2px;
+  left: -2px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.top-right {
+  top: -2px;
+  right: -2px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.bottom-left {
+  bottom: -2px;
+  left: -2px;
+  border-right: none;
+  border-top: none;
+}
+
+.bottom-right {
+  bottom: -2px;
+  right: -2px;
+  border-left: none;
+  border-top: none;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-content {
+    text-align: center;
+  }
+
+  .features-list {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .feature-item {
+    text-align: center;
+  }
+
+  .feature-item i {
+    float: none;
+    margin-right: 0;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .feature-item:hover {
+    transform: translateY(-10px);
+  }
+
+  .cyber-frame {
+    margin: 0 auto;
+  }
+}

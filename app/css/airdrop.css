@@ -1,0 +1,954 @@
+/* FPVTOKEN - Airdrop Section Styles
+   Version: 3.0 - Enhanced Cyberpunk
+*/
+
+@keyframes glow {
+  0% { text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff, 0 0 30px #00f0ff; }
+  50% { text-shadow: 0 0 20px #00f0ff, 0 0 30px #00f0ff, 0 0 40px #00f0ff; }
+  100% { text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff, 0 0 30px #00f0ff; }
+}
+
+@keyframes borderGlow {
+  0% { border-color: rgba(0, 240, 255, 0.3); box-shadow: 0 0 20px rgba(0, 240, 255, 0.1); }
+  50% { border-color: rgba(0, 240, 255, 0.8); box-shadow: 0 0 30px rgba(0, 240, 255, 0.3); }
+  100% { border-color: rgba(0, 240, 255, 0.3); box-shadow: 0 0 20px rgba(0, 240, 255, 0.1); }
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ==== AIRDROP SECTION ==== */
+#airdrop-section {
+  background: #0a0a0a;
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 500px;
+  margin: 6rem 0;
+}
+
+#airdrop-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  transform: perspective(500px) rotateX(60deg);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.8;
+}
+
+#airdrop-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+  transform: perspective(500px) rotateX(60deg);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.cyberpunk-container {
+  width: 700px;
+  height: 700px;
+  margin: 0 auto;
+  padding: 4rem;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background: var(--glass-gradient);
+  border-radius: 16px;
+  box-shadow: 
+    0 0 40px rgba(0, 240, 255, 0.15),
+    0 0 80px rgba(0, 240, 255, 0.1),
+    inset 0 0 30px rgba(0, 240, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  animation: containerGlow 4s ease-in-out infinite alternate;
+}
+
+/* Glowing border effect */
+.cyberpunk-container::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    45deg,
+    transparent 5%,
+    var(--primary) 45%,
+    var(--accent) 55%,
+    transparent 95%
+  );
+  border-radius: 16px;
+  z-index: -1;
+  animation: borderRotate 4s linear infinite;
+  opacity: 0.7;
+}
+
+/* Inner container background */
+.cyberpunk-container::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background: var(--glass-gradient);
+  border-radius: 16px;
+  z-index: -1;
+}
+
+/* Decorative lines */
+.cyberpunk-container .line {
+  position: absolute;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--primary),
+    transparent
+  );
+}
+
+.cyberpunk-container .line-top {
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 1px;
+}
+
+.cyberpunk-container .line-bottom {
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+}
+
+/* Corner accents */
+.cyberpunk-container .corner {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  z-index: 2;
+}
+
+.cyberpunk-container .corner::before,
+.cyberpunk-container .corner::after {
+  content: '';
+  position: absolute;
+  background: var(--primary);
+  box-shadow: 0 0 15px var(--primary);
+}
+
+.cyberpunk-container .corner::before {
+  width: 2px;
+  height: 100%;
+}
+
+.cyberpunk-container .corner::after {
+  width: 100%;
+  height: 2px;
+}
+
+.cyberpunk-container .corner-top-left {
+  top: 0;
+  left: 0;
+}
+
+.cyberpunk-container .corner-top-right {
+  top: 0;
+  right: 0;
+  transform: rotate(90deg);
+}
+
+.cyberpunk-container .corner-bottom-left {
+  bottom: 0;
+  left: 0;
+  transform: rotate(-90deg);
+}
+
+.cyberpunk-container .corner-bottom-right {
+  bottom: 0;
+  right: 0;
+  transform: rotate(180deg);
+}
+
+/* Enhanced title styling */
+.cyberpunk-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 3.5rem;
+  color: var(--light);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  position: relative;
+  text-shadow: 
+    0 0 5px var(--primary),
+    0 0 10px var(--primary),
+    0 0 20px var(--primary),
+    0 0 40px var(--primary);
+  animation: neonPulse 1.5s ease-in-out infinite alternate;
+}
+
+.cyberpunk-title::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -20px;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 3px;
+  background: var(--primary);
+  box-shadow: 
+    0 0 10px var(--primary),
+    0 0 20px var(--primary);
+}
+
+.cyberpunk-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -20px;
+  transform: translateX(-50%);
+  width: 240px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--primary),
+    transparent
+  );
+}
+
+/* ==== GRID LAYOUT ==== */
+.airdrop-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 700px);
+  gap: 6rem;
+  align-items: center;
+  justify-content: center;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ==== FORM CONTAINER ==== */
+.airdrop-form-container {
+  background: var(--glass-gradient);
+  border: 1px solid var(--primary);
+  padding: var(--airdrop-padding-md);
+  border-radius: var(--airdrop-border-radius);
+  box-shadow: var(--airdrop-shadow);
+  backdrop-filter: var(--airdrop-blur);
+  -webkit-backdrop-filter: var(--airdrop-blur);
+}
+
+.cyberpunk-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.cyberpunk-label {
+  color: var(--light);
+  font-family: 'Share Tech Mono', monospace;
+  margin-bottom: calc(var(--airdrop-padding-sm) * 0.5);
+  display: block;
+}
+
+.input-with-icon {
+  position: relative;
+  width: 100%;
+}
+
+.cyberpunk-input {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  background: rgba(13, 14, 33, 0.8);
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  color: var(--light);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 
+    inset 0 0 10px rgba(0, 240, 255, 0.2),
+    0 0 10px rgba(0, 240, 255, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.cyberpunk-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: rgba(13, 14, 33, 0.9);
+  box-shadow: 
+    0 0 20px rgba(0, 240, 255, 0.3),
+    inset 0 0 15px rgba(0, 240, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Enhanced button styling */
+.cyberpunk-btn, button {
+  padding: 1.2rem 2.5rem;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 240, 255, 0.1),
+    rgba(161, 0, 255, 0.1)
+  );
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  color: var(--light);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 0 20px rgba(0, 240, 255, 0.2),
+    inset 0 0 20px rgba(0, 240, 255, 0.2);
+}
+
+.cyberpunk-btn:hover, button:hover {
+  background: linear-gradient(
+    45deg,
+    rgba(0, 240, 255, 0.2),
+    rgba(161, 0, 255, 0.2)
+  );
+  transform: translateY(-3px);
+  box-shadow: 
+    0 0 30px rgba(0, 240, 255, 0.4),
+    inset 0 0 30px rgba(0, 240, 255, 0.4);
+  letter-spacing: 3px;
+  border-color: var(--primary-alt);
+}
+
+.cyberpunk-btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: rotate(45deg);
+  transition: 0.5s;
+  opacity: 0;
+}
+
+.cyberpunk-btn:hover::before {
+  animation: shine 1.5s ease-out;
+}
+
+/* ==== WALLET CONTAINER AND BUTTON STYLES ==== */
+.wallet-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.wallet-container > div {
+  width: 100%;
+}
+
+.wallet-container button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+  font-family: 'Share Tech Mono', monospace;
+  padding: 1.2rem 2.5rem;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 240, 255, 0.1),
+    rgba(161, 0, 255, 0.1)
+  );
+  border: 1px solid var(--primary);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.wallet-container button:hover {
+  background: linear-gradient(
+    45deg,
+    rgba(0, 240, 255, 0.2),
+    rgba(161, 0, 255, 0.2)
+  );
+  transform: translateY(-3px);
+  box-shadow: 
+    0 0 30px rgba(0, 240, 255, 0.4),
+    inset 0 0 30px rgba(0, 240, 255, 0.4);
+}
+
+@keyframes borderRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shine {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%) rotate(45deg);
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+@keyframes neonPulse {
+  from {
+    text-shadow: 
+      0 0 5px var(--primary),
+      0 0 10px var(--primary),
+      0 0 20px var(--primary),
+      0 0 40px var(--primary);
+  }
+  to {
+    text-shadow: 
+      0 0 7px var(--primary),
+      0 0 15px var(--primary),
+      0 0 25px var(--primary),
+      0 0 45px var(--primary);
+  }
+}
+
+@keyframes containerGlow {
+  from {
+    box-shadow: 
+      0 0 40px rgba(0, 240, 255, 0.15),
+      0 0 80px rgba(0, 240, 255, 0.1),
+      inset 0 0 30px rgba(0, 240, 255, 0.15);
+  }
+  to {
+    box-shadow: 
+      0 0 50px rgba(0, 240, 255, 0.2),
+      0 0 100px rgba(0, 240, 255, 0.15),
+      inset 0 0 40px rgba(0, 240, 255, 0.2);
+  }
+}
+
+#claimAirdropBtn {
+  background: linear-gradient(45deg, 
+    var(--primary) 0%,
+    var(--primary-alt) 100%);
+  border: none;
+  font-weight: bold;
+  font-size: 1.3rem;
+  padding: 20px 40px;
+  margin: 1rem 0;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+#claimAirdropBtn:hover {
+  background: linear-gradient(45deg, 
+    var(--primary-alt) 0%,
+    var(--primary) 100%);
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.4);
+  transform: translateY(-2px) scale(1.02);
+}
+
+#claimAirdropBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+#claimAirdropBtn:hover::before {
+  left: 100%;
+}
+
+/* ==== WALLET ACTIONS ==== */
+.wallet-action-buttons {
+  display: flex;
+  gap: var(--airdrop-padding-sm);
+  margin-top: var(--airdrop-padding-sm);
+}
+
+.cyberpunk-status {
+  padding: 1.2rem;
+  margin: 1.2rem 0;
+  border-radius: 8px;
+  font-family: 'Share Tech Mono', monospace;
+  text-align: center;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  background: rgba(13, 14, 33, 0.8);
+  border: 1px solid var(--error);
+  box-shadow: 0 0 20px rgba(255, 42, 109, 0.2);
+}
+
+.cyberpunk-status::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: currentColor;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.cyberpunk-status.connected {
+  border-color: var(--success);
+  box-shadow: 0 0 20px rgba(5, 255, 161, 0.2);
+  color: var(--success);
+}
+
+.cyberpunk-status.disconnected {
+  animation: errorPulse 2s infinite;
+  color: var(--error);
+}
+
+@keyframes errorPulse {
+  0% { border-color: rgba(255, 42, 109, 0.6); }
+  50% { border-color: rgba(255, 42, 109, 1); }
+  100% { border-color: rgba(255, 42, 109, 0.6); }
+}
+
+#status, #nft-status {
+  padding: 1.2rem;
+  margin: 1.2rem 0;
+  border-radius: 8px;
+  font-family: 'Share Tech Mono', monospace;
+  text-align: center;
+  background: rgba(13, 14, 33, 0.7);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+#wallet-address {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  margin-top: 1.2rem;
+  padding: 1rem;
+  background: rgba(13, 14, 33, 0.6);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  letter-spacing: 1px;
+}
+
+/* ==== NFT SECTION ==== */
+.nft-section {
+  background: var(--glass-gradient);
+  padding: var(--airdrop-padding-md);
+  border-radius: var(--airdrop-border-radius);
+  border: 1px solid var(--accent);
+  box-shadow: var(--airdrop-shadow);
+  backdrop-filter: var(--airdrop-blur);
+  -webkit-backdrop-filter: var(--airdrop-blur);
+  text-align: center;
+}
+
+.nft-title {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--accent);
+  margin-bottom: var(--airdrop-padding-md);
+  font-size: var(--airdrop-subtitle-size);
+  text-shadow: 0 0 10px var(--accent);
+}
+
+.nft-preview {
+  margin-bottom: var(--airdrop-padding-md);
+}
+
+.nft-card {
+  position: relative;
+  width: var(--airdrop-nft-card-size);
+  height: var(--airdrop-nft-card-size);
+  margin: 0 auto;
+  border-radius: var(--airdrop-border-radius);
+  overflow: hidden;
+  box-shadow: var(--airdrop-shadow);
+  transition: var(--airdrop-transition);
+  cursor: pointer;
+}
+
+.nft-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: var(--airdrop-hover-shadow);
+}
+
+.nft-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.nft-image.fade-out {
+  opacity: 0;
+}
+
+.nft-image.fade-in {
+  opacity: 1;
+}
+
+.nft-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(161, 0, 255, 0.2), rgba(9, 11, 20, 0.8));
+  opacity: 0.5;
+  transition: var(--airdrop-transition);
+}
+
+.nft-card:hover .nft-overlay {
+  opacity: 0.8;
+}
+
+/* Navigation dots */
+.nft-nav-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 1rem;
+}
+
+.nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--foreground);
+  opacity: 0.5;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-dot.active {
+  background: var(--accent);
+  opacity: 1;
+  box-shadow: 0 0 10px var(--accent);
+}
+
+/* ==== RESPONSIVE STYLES ==== */
+@media (max-width: 1600px) {
+  .airdrop-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1400px;
+    gap: 3rem;
+  }
+  
+  .cyberpunk-container {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    min-height: 600px;
+    padding: 3rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .airdrop-grid {
+    gap: 2rem;
+  }
+  
+  .cyberpunk-container {
+    max-width: 500px;
+    min-height: 550px;
+    padding: 2.5rem;
+  }
+  
+  .cyberpunk-title {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  #airdrop-section {
+    padding: 5rem 0;
+    margin: 4rem 0;
+  }
+  
+  .airdrop-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .cyberpunk-container {
+    max-width: 650px;
+    min-height: 500px;
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #airdrop-section {
+    padding: 4rem 0;
+    margin: 3rem 0;
+  }
+  
+  .cyberpunk-container {
+    width: 95%;
+    min-height: auto;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .cyberpunk-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cyberpunk-form {
+    gap: 1.5rem;
+  }
+
+  .cyberpunk-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+  
+  .nft-carousel {
+    margin: 0 auto 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #airdrop-section {
+    padding: 3rem 0;
+    margin: 2rem 0;
+  }
+  
+  .cyberpunk-container {
+    width: 92%;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .cyberpunk-title {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .cyberpunk-title::before {
+    width: 80px;
+    bottom: -15px;
+  }
+  
+  .cyberpunk-title::after {
+    width: 160px;
+    bottom: -15px;
+  }
+
+  .cyberpunk-input,
+  .cyberpunk-btn {
+    font-size: 0.9rem;
+    padding: 10px 16px;
+  }
+  
+  .wallet-container button,
+  #claimAirdropBtn,
+  .cyberpunk-btn {
+    height: 50px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+  
+  #wallet-address {
+    font-size: 0.85rem;
+    padding: 0.75rem 0.5rem;
+    word-break: break-all;
+  }
+}
+
+/* ==== REDUCED MOTION ==== */
+@media (prefers-reduced-motion: reduce) {
+  .cyberpunk-title {
+    animation: none;
+  }
+  
+  .nft-card,
+  .nft-image,
+  .nft-overlay {
+    transition: none;
+  }
+}
+
+.button-wrapper {
+  width: 100%;
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Shared button styles for both Connect and Claim buttons */
+.wallet-container button,
+#claimAirdropBtn,
+.cyberpunk-btn {
+  width: 100%;
+  max-width: 400px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 240, 255, 0.1),
+    rgba(161, 0, 255, 0.1)
+  );
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  color: var(--light);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  padding: 0 2.5rem;
+  margin: 1rem auto;
+  box-shadow: 
+    0 0 20px rgba(0, 240, 255, 0.2),
+    inset 0 0 20px rgba(0, 240, 255, 0.2);
+}
+
+.wallet-container button:hover,
+#claimAirdropBtn:hover,
+.cyberpunk-btn:hover {
+  background: linear-gradient(
+    45deg,
+    rgba(0, 240, 255, 0.2),
+    rgba(161, 0, 255, 0.2)
+  );
+  transform: translateY(-3px);
+  box-shadow: 
+    0 0 30px rgba(0, 240, 255, 0.4),
+    inset 0 0 30px rgba(0, 240, 255, 0.4);
+  border-color: var(--primary-alt);
+}
+
+.wallet-container button::before,
+#claimAirdropBtn::before,
+.cyberpunk-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.wallet-container button:hover::before,
+#claimAirdropBtn:hover::before,
+.cyberpunk-btn:hover::before {
+  left: 100%;
+}
+
+/* Override any RainbowKit specific styles */
+.wallet-container > div {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.wallet-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.wallet-container > div {
+  width: 100%;
+}
+
+.wallet-container button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+  font-family: 'Share Tech Mono', monospace;
+  padding: 1.2rem 2.5rem;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 240, 255, 0.1),
+    rgba(161, 0, 255, 0.1)
+  );
+  border: 1px solid var(--primary);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.wallet-container button:hover {
+  background: linear-gradient(
+    45deg,
+    rgba(0, 240, 255, 0.2),
+    rgba(161, 0, 255, 0.2)
+  );
+  transform: translateY(-3px);
+  box-shadow: 
+    0 0 30px rgba(0, 240, 255, 0.4),
+    inset 0 0 30px rgba(0, 240, 255, 0.4);
+}

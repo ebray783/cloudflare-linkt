@@ -1,0 +1,173 @@
+/* FPVTOKEN - Explorer Section Styles
+   Version: 1.0
+*/
+
+/* ==== EXPLORER SECTION ==== */
+#explorer-section {
+  background: var(--background);
+  padding: 4rem 1rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#explorer-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  transform: perspective(500px) rotateX(60deg);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.8;
+}
+
+#explorer-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+  transform: perspective(500px) rotateX(60deg);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.explorer-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
+  color: var(--primary);
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px var(--primary);
+  position: relative;
+  z-index: 1;
+}
+
+/* Carousel Styles */
+.carousel-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.carousel-track {
+  display: flex;
+  animation: scroll 40s linear infinite;
+}
+
+.drone-image {
+  min-width: 200px;
+  height: 200px;
+  margin: 0 1rem;
+  object-fit: cover;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.drone-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--primary);
+}
+
+/* Brand Section */
+.brand-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  color: var(--light);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+.brands {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.brands img {
+  width: 100%;
+  height: 80px;
+  object-fit: contain; /* Maintains aspect ratio */
+  filter: grayscale(100%) brightness(90%) contrast(90%);
+  transition: all 0.3s ease;
+  opacity: 0.85;
+}
+
+.brands img:hover {
+  filter: grayscale(0%) brightness(100%) contrast(100%);
+  opacity: 1;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive explorer section */
+@media (max-width: 992px) {
+  .explorer-title {
+    font-size: 2.5rem;
+  }
+
+  .brand-title {
+    font-size: 1.8rem;
+  }
+
+  .drone-image {
+    min-width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  #explorer-section {
+    padding: 3rem 1rem;
+  }
+
+  .explorer-title {
+    font-size: 2rem;
+  }
+
+  .brand-title {
+    font-size: 1.5rem;
+  }
+
+  .brands {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .brands img {
+    height: 60px;
+  }
+}

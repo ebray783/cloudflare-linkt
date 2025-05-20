@@ -1,0 +1,294 @@
+/* FPV DRONE LIST SECTION STYLES */
+.fpv-parts-section {
+  position: relative;
+  background: var(--background);
+  padding: 6rem 0;
+  margin-top: 100px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.fpv-parts-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+   linear-gradient(90deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+  z-index: -1;
+}
+
+.fpv-parts-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+     linear-gradient(90deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+  background-size: 20px 20px;
+  z-index: -1;
+}
+
+.fpv-parts-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ONLY CHANGING TEXT COLORS BELOW */
+.fpv-parts-section .title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #dafffe; /* Updated text color */
+  text-shadow: 0 0 15px rgba(123, 223, 255, 0.5);
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+.fpv-parts-section .subtitle {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  color: #20e0d8; /* Updated text color */
+  text-shadow: 0 0 10px rgba(32, 224, 216, 0.4);
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.fpv-parts-section ul.parts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  list-style-type: none;
+  padding: 0;
+}
+
+.fpv-parts-section li.part-box {
+  background: rgba(9, 11, 20, 0.7);
+  border: 1px solid var(--primary);
+  padding: 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.fpv-parts-section li.part-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 240, 255, 0.3);
+  border-color: rgba(0, 240, 255, 0.8);
+}
+
+.fpv-parts-section li.part-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.fpv-parts-section li.part-box:hover::before {
+  opacity: 1;
+}
+
+/* Added styles for part-container */
+.fpv-parts-section .part-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.fpv-parts-section li.part-box .icon-glow {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+}
+
+.fpv-parts-section li.part-box:hover .icon-glow {
+  color: #20e0d8; /* Updated text color */
+  text-shadow: 0 0 15px rgba(32, 224, 216, 0.8);
+  transform: scale(1.1);
+}
+
+/* Fixed styles for part images - removed color filter */
+.fpv-parts-section .part-image {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.6));
+  transition: all 0.3s ease;
+}
+
+.fpv-parts-section li.part-box:hover .part-image {
+  filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.8));
+  transform: scale(1.1);
+}
+
+.fpv-parts-section li.part-box span {
+  color: #7bdfff; /* Updated text color */
+  text-shadow: 0 0 8px rgba(123, 223, 255, 0.4);
+  font-weight: 500;
+  font-family: 'Share Tech Mono', monospace;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  text-align: center;
+  /* Add margin-top to create space between image and text */
+  margin-top: 0.75rem;
+}
+
+.fpv-parts-section li.part-box:hover span {
+  color: #e0ffff; /* Updated text color on hover */
+  text-shadow: 0 0 12px rgba(123, 223, 255, 0.7);
+}
+
+.fpv-parts-section .highlight {
+  margin-top: 3rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fpv-parts-section .highlight .trophy-icon {
+  font-size: 2.5rem;
+  margin-right: 1.5rem;
+  color: gold;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+  animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.fpv-parts-section .highlight a {
+  background: linear-gradient(90deg, rgba(9, 11, 20, 0.8), rgba(9, 11, 20, 0.9), rgba(9, 11, 20, 0.8));
+  padding: 1.5rem;
+  border-radius: 8px;
+  color: #c5f7ff; /* Updated text color */
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid var(--primary);
+  text-decoration: none;
+}
+
+.fpv-parts-section .highlight a:hover {
+  background: linear-gradient(90deg, rgba(9, 11, 20, 0.9), rgba(9, 11, 20, 1), rgba(9, 11, 20, 0.9));
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+  border-color: rgba(0, 240, 255, 0.8);
+  transform: translateY(-3px);
+}
+
+.fpv-parts-section .token-amount {
+  color: #20e0d8; /* Updated text color */
+  margin-left: 0.5rem;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(32, 224, 216, 0.6);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { text-shadow: 0 0 10px rgba(32, 224, 216, 0.6); }
+  50% { text-shadow: 0 0 20px rgba(32, 224, 216, 0.8); }
+  100% { text-shadow: 0 0 10px rgba(32, 224, 216, 0.6); }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .fpv-parts-section .title {
+    font-size: 2rem;
+  }
+  
+  .fpv-parts-section .subtitle {
+    font-size: 1rem;
+  }
+  
+  .fpv-parts-section ul.parts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .fpv-parts-section .highlight {
+    flex-direction: column;
+  }
+  
+  .fpv-parts-section .highlight .trophy-icon {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .fpv-parts-section .highlight a {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .fpv-parts-section .token-amount {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+  
+  /* Responsive image size */
+  .fpv-parts-section .part-image {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fpv-parts-section {
+    padding: 4rem 0;
+  }
+  
+  .fpv-parts-section .title {
+    font-size: 1.5rem;
+  }
+  
+  .fpv-parts-section ul.parts-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .fpv-parts-section li.part-box {
+    padding: 1rem;
+  }
+  
+  .fpv-parts-section li.part-box .icon-glow {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .fpv-parts-section .highlight a {
+    font-size: 0.9rem;
+    padding: 0.75rem;
+  }
+  
+  /* Smaller image size for mobile */
+  .fpv-parts-section .part-image {
+    width: 40px;
+    height: 40px;
+  }
+}

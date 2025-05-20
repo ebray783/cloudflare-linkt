@@ -1,0 +1,47 @@
+/* Icon fixes for Font Awesome compatibility */
+
+/* Drone icon fallback */
+.fa-drone-alt::before {
+  content: "\f197"; /* Using fa-space-shuttle as a drone alternative */
+}
+
+/* Force all icons to display properly */
+.fab, .fas, .far, .fa {
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands", "FontAwesome", sans-serif !important;
+  display: inline-block !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  text-rendering: auto !important;
+  line-height: 1 !important;
+}
+
+/* Github icon special fix */
+.fa-github::before {
+  content: "\f09b" !important;
+}
+
+/* X/Twitter icon */
+.fa-x-twitter::before,
+.fa-twitter::before {
+  content: "\f099" !important; /* Twitter icon code that works in all FA versions */
+}
+
+/* Fix for any other potentially problematic icons */
+.fa-telegram-plane::before,
+.fa-telegram::before {
+  content: "\f3fe" !important;
+}
+
+.fa-facebook-f::before,
+.fa-facebook::before {
+  content: "\f39e" !important;
+}
+
+/* Custom icon sizing overrides */
+.github-link i {
+  font-size: 2.2rem !important;
+}
+
+.social-icons a i {
+  font-size: 1.8rem !important;
+}
