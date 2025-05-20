@@ -2,9 +2,10 @@
   "name": "rainbow-tutorial",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "npm@9.6.7",
   "scripts": {
     "dev": "next dev",
-    "build": "next build --no-lint",
+    "build": "npx @cloudflare/next-on-pages",
     "start": "next start",
     "lint": "next lint",
     "pages:build": "next build --no-lint",
